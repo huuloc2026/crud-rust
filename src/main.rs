@@ -20,6 +20,28 @@ enum Manager {
     UpdateStudent,
     DeleteStudent
 }
+pub struct Student {
+    id: u32,
+    name:String,
+    age: u8,
+    class:String,
+}
+pub struct Students {
+    class: Vec<Student>,
+}
+
+impl Students {
+    fn new() -> Self{
+        Self {class: vec![]}
+    }     
+    fn add(&mut self,new_student: Student){
+        self.class.push(new_student);
+    }
+    fn view_all(&self) -> Vec<Student>{
+        self.class.iter().collect()
+    }
+}
+
 impl Manager {
     fn show(){
         println!("*****---------****");
